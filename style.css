@@ -1,0 +1,37 @@
+/* Default light mode (siang) */
+body {
+    background-color: #f4f4f4; /* Light background for daytime */
+    color: #333333; /* Dark text for readability */
+    text-align: justify;
+}
+
+/* Dark mode styling */
+body.dark-mode {
+    background-color: #121212; /* Very dark background for night mode */
+    color: #ffffff; /* White text for better visibility */
+}
+
+/* Links styling with navy blue color */
+a {
+    color: #4682b4; /* Lighter navy blue links */
+}
+
+a:hover {
+    color: #5f9ea0; /* Lighter shade of navy on hover */
+}
+
+/* Code blocks and inline code for both modes */
+pre, code {
+    background-color: #333333; /* Dark background for code blocks */
+    color: #ffffff; /* White text for code */
+}
+
+/* Styling for dark mode links */
+body.dark-mode a {
+    color: #80aaff; /* Lighter navy blue for dark mode links */
+}
+
+body.dark-mode a:hover {
+    color: #99bbcc; /* Lighter navy shade on hover for dark mode */
+}
+
