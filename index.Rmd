@@ -23,13 +23,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Pengantar 
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents [@deCarvalho2012]. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Penggunaan ggplot2 dalam analisis data didasarkan pada fleksibilitas dan kekuatannya dalam membuat visualisasi data yang estetis, informatif, dan mudah disesuaikan. Dengan pendekatan berbasis Grammar of Graphics, ggplot2 memungkinkan pengguna untuk membangun grafik secara modular dengan menambahkan lapisan (layers) seperti titik, garis, atau teks, sehingga mempermudah eksplorasi hubungan antar variabel. Selain itu, ggplot2 mendukung berbagai jenis grafik, mulai dari grafik univariat seperti histogram, bivariat seperti scatter plot, hingga multivariat seperti heatmap, yang semuanya dapat dioptimalkan untuk analisis data. Library ini juga mendukung pengaturan estetika seperti warna, ukuran, dan tema secara detail, sehingga hasil visualisasi tidak hanya membantu analisis tetapi juga komunikatif dan menarik secara visual. Hal inilah yang menjadikan ggplot2 sebagai pilihan utama untuk analisis data di R.
 
 ```{r cars}
-summary(cars)
+data <- read.csv("data.csv")
+```
+
+```{r}
+# Histogram angka_harapan_hidup
+library(ggplot2)
+
+ggplot(data, aes(x = Angka_Harapan_Hidup)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+  labs(title = "Distribusi Angka Harapan Hidup", x = "Angka Harapan Hidup", y = "Frekuensi") +
+  theme_minimal()
+
 ```
 
 ## Including Plots
