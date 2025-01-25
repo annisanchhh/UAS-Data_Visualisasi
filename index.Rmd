@@ -30,6 +30,8 @@ data <- read.csv("data.csv")
 ```
 ![Gambar](data.png)
 
+# Univat
+
 ```{r}
 # Histogram angka_harapan_hidup
 library(ggplot2)
@@ -41,14 +43,40 @@ ggplot(data, aes(x = Angka_Harapan_Hidup)) +
 
 ```
 
-## Including Plots
+# Bivariat
 
-You can also embed plots, for example:
+## scatter plot 
+pendapatan_perkapita dan angka_harapan_hidup
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+library(ggplot2)
+
+# Membuat scatter plot untuk analisis bivariat
+ggplot(data, aes(x = Pendapatan_per_kapita, y = Angka_Harapan_Hidup, color = Benua)) +
+  geom_point(size = 1) +
+  labs(title = "Hubungan Pendapatan Per Kapita dengan Angka Harapan Hidup", 
+       x = "Pendapatan Per Kapita", 
+       y = "Angka Harapan Hidup") +
+  theme_minimal()
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# Multivariat
+
+
+```{r}
+# Pastikan data sudah dimuat dan tersedia
+library(plotly)
+
+# Membuat 3D scatter plot
+plot_ly(data, x = ~Pendapatan_per_kapita, y = ~Angka_Harapan_Hidup, z = ~Populasi, 
+        type = "scatter3d", mode = "markers", color = ~Benua) %>%
+  layout(title = "3D Scatter Plot: Pendapatan Per Kapita vs Angka Harapan Hidup vs Populasi",
+         scene = list(xaxis = list(title = 'Pendapatan Per Kapita'),
+                      yaxis = list(title = 'Angka Harapan Hidup'),
+                      zaxis = list(title = 'Populasi')))
+
+```
+
 
 # Referensi
