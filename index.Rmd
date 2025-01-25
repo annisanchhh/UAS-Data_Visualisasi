@@ -28,6 +28,7 @@ Penggunaan ggplot2 dalam analisis data didasarkan pada fleksibilitas dan kekuata
 ```{r cars}
 data <- read.csv("data.csv")
 ```
+![Gambar](data.png)
 
 ```{r}
 # Histogram angka_harapan_hidup
