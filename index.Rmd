@@ -49,15 +49,21 @@ ggplot(data, aes(x = Angka_Harapan_Hidup)) +
 pendapatan_perkapita dan angka_harapan_hidup
 
 ```{r}
+# Memuat library
 library(ggplot2)
 
-# Membuat scatter plot untuk analisis bivariat
-ggplot(data, aes(x = Pendapatan_per_kapita, y = Angka_Harapan_Hidup, color = Benua)) +
-  geom_point(size = 1) +
-  labs(title = "Hubungan Pendapatan Per Kapita dengan Angka Harapan Hidup", 
-       x = "Pendapatan Per Kapita", 
-       y = "Angka Harapan Hidup") +
-  theme_minimal()
+# Menghitung total populasi per benua
+total_population <- aggregate(Populasi ~ Benua, data = data, sum)
+
+# Visualisasi dengan sumbu dibalik
+ggplot(total_population, aes(y = Benua, x = Populasi, fill = Benua)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Populasi Berdasarkan Benua",
+       x = "Total Populasi",
+       y = "Benua") +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Pastel1")
+
 
 ```
 
@@ -75,9 +81,18 @@ plot_ly(data, x = ~Pendapatan_per_kapita, y = ~Angka_Harapan_Hidup, z = ~Populas
          scene = list(xaxis = list(title = 'Pendapatan Per Kapita'),
                       yaxis = list(title = 'Angka Harapan Hidup'),
                       zaxis = list(title = 'Populasi')))
+```
+
+
+
+# interaktif
+
+```{r}
+library(plotly)
 
 ```
 
+```
 
 
 # Referensi
