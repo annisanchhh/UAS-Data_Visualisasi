@@ -37,7 +37,7 @@ data <- read.csv("data.csv")
 library(ggplot2)
 
 ggplot(data, aes(x = Angka_Harapan_Hidup)) +
-  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+  geom_histogram(binwidth = 5, fill = "#E5989B", color = "#B5828C") +
   labs(title = "Distribusi Angka Harapan Hidup", x = "Angka Harapan Hidup", y = "Frekuensi") +
   theme_minimal()
 
@@ -71,8 +71,8 @@ ggplot(total_population, aes(y = Benua, x = Populasi, fill = Benua)) +
 
 
 ```{r}
-# Pastikan data sudah dimuat dan tersedia
-library(plotly)
+suppressPackageStartupMessages(library(plotly))
+
 
 # Membuat 3D scatter plot
 plot_ly(data, x = ~Pendapatan_per_kapita, y = ~Angka_Harapan_Hidup, z = ~Populasi, 
@@ -84,13 +84,38 @@ plot_ly(data, x = ~Pendapatan_per_kapita, y = ~Angka_Harapan_Hidup, z = ~Populas
 ```
 
 
+```{r}
+
+```
 
 # interaktif
+ Scatter plot dengan animasi berdasarkan Tahun
 
 ```{r}
 library(plotly)
+options(warn = -1)
 
-```
+fig <- plot_ly(data, 
+               x = ~Pendapatan_per_kapita, 
+               y = ~Angka_Harapan_Hidup, 
+               size = ~Populasi, 
+               color = ~Benua, 
+               frame = ~Tahun, 
+               text = ~paste("Negara:", Negara, 
+                             "<br>Pendapatan:", Pendapatan_per_kapita, 
+                             "<br>Harapan Hidup:", Angka_Harapan_Hidup, 
+                             "<br>Populasi:", Populasi),
+               type = 'scatter', 
+               mode = 'markers') %>% 
+  layout(title = "Perubahan Multivariat dari Tahun ke Tahun",
+         xaxis = list(title = "Pendapatan Per Kapita"),
+         yaxis = list(title = "Angka Harapan Hidup"))
+
+fig
+
+# Mengembalikan opsi peringatan ke normal
+options(warn = 0)
+
 
 ```
 
