@@ -44,13 +44,12 @@ data <- read.csv("data.csv")
 ![Gambar](data.png)
 
 # Univat
-Univariat adalah teknik eksplorasi data yang hanya melibatkan satu variabel untuk memahami distribusinya, kecenderungan sentral, dan penyebarannya. Pada histogram di bawah, visualisasi dilakukan dipangil menggunaan library(ggplot2) dengan menampilkan distribusi angka harapan hidup. Warna diatur agar lebih estetis, serta ditambahkan garis kepadatan (density) untuk memperjelas pola distribusi. Dengan menggunakan binwidth = 5, histogram menunjukkan bagaimana nilai angka harapan hidup tersebar dalam dataset, membantu dalam analisis tren dan identifikasi outlier.
+Univariat adalah teknik analisis data yang hanya fokus pada satu variabel. 
 
 
 ## Histogram
 
-Variabel yang digunakan angka harapan hidup
-
+Pada histogram di bawah, digunakan library ggplot2 untuk menampilkan distribusi angka harapan hidup. Warna dibuat lebih menarik dan ditambahkan agar pola distribusi lebih jelas. 
 ```{r}
 library(ggplot2)
 
