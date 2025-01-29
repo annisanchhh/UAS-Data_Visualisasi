@@ -164,5 +164,11 @@ options(warn = 0)
 
 
 
-# Referensi
+# Kesimpulan
 
+1. Negara yang lebih kaya cenderung punya angka harapan hidup lebih tinggi.  
+2. Jumlah anak di setiap negara berbeda tergantung faktor sosial dan ekonomi.  
+3. Populasi tidak merata, ada benua yang lebih padat dari yang lain.  
+4. Pendapatan per kapita dan angka harapan hidup saling berhubungan.  
+5. Negara dengan populasi besar belum tentu memiliki pendapatan tinggi.  
+6. Grafik interaktif memudahkan melihat perubahan data dari tahun ke tahun.  
