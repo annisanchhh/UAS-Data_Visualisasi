@@ -23,14 +23,29 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Pengantar 
-Penggunaan ggplot2 dalam analisis data didasarkan pada fleksibilitas dan kekuatannya dalam membuat visualisasi data yang estetis, informatif, dan mudah disesuaikan. Dengan pendekatan berbasis Grammar of Graphics, ggplot2 memungkinkan pengguna untuk membangun grafik secara modular dengan menambahkan lapisan (layers) seperti titik, garis, atau teks, sehingga mempermudah eksplorasi hubungan antar variabel. Selain itu, ggplot2 mendukung berbagai jenis grafik, mulai dari grafik univariat seperti histogram, bivariat seperti scatter plot, hingga multivariat seperti heatmap, yang semuanya dapat dioptimalkan untuk analisis data. Library ini juga mendukung pengaturan estetika seperti warna, ukuran, dan tema secara detail, sehingga hasil visualisasi tidak hanya membantu analisis tetapi juga komunikatif dan menarik secara visual. Hal inilah yang menjadikan ggplot2 sebagai pilihan utama untuk analisis data di R.
 
+Analisis data merupakan langkah penting dalam memahami berbagai tren sosial, ekonomi, dan demografi suatu negara. Dataset yang digunakan dalam penelitian ini berisi informasi tentang berbagai negara dari tahun ke tahun, mencakup variabel seperti angka harapan hidup, pendapatan per kapita, populasi, dan rata-rata jumlah anak.
+
+Dengan menggunakan bahasa pemrograman R dan library ggplot2, analisis ini bertujuan untuk mengeksplorasi hubungan antara variabel-variabel tersebut. Melalui visualisasi data, kita dapat memahami bagaimana angka harapan hidup dan pendapatan per kapita berkembang seiring waktu di berbagai wilayah dunia. Selain itu, analisis ini juga dapat membantu dalam mengidentifikasi pola dan perbedaan antar negara dan benua.
+
+Penelitian ini tidak hanya berfokus pada eksplorasi data, tetapi juga pada pemanfaatan teknik statistik untuk mendapatkan wawasan yang lebih mendalam. Dengan demikian, hasil dari analisis ini diharapkan dapat memberikan gambaran yang jelas mengenai tren global dalam berbagai aspek sosial-ekonomi.n ggplot2 sebagai pilihan utama untuk analisis data di R.
+
+
+
+## Dasar-Dasar  
+Langkah awal kita harus memasukan data csv ke R. 
+untuk memudahkan, drag and drop di folder yang akan di gunakan
+
+![Gambar](gambar.png)
+
+Kemudian di baca datanya 
 ```{r cars}
 data <- read.csv("data.csv")
 ```
 ![Gambar](data.png)
 
 # Univat
+Univariat adalah teknik eksplorasi data yang hanya melibatkan satu variabel untuk memahami distribusinya, kecenderungan sentral, dan penyebarannya. Pada histogram di bawah, visualisasi dilakukan dipangil menggunaan library(ggplot2) dengan menampilkan distribusi angka harapan hidup. Warna diatur agar lebih estetis, serta ditambahkan garis kepadatan (density) untuk memperjelas pola distribusi. Dengan menggunakan binwidth = 5, histogram menunjukkan bagaimana nilai angka harapan hidup tersebar dalam dataset, membantu dalam analisis tren dan identifikasi outlier.
 
 ```{r}
 # Histogram angka_harapan_hidup
@@ -120,4 +135,6 @@ options(warn = 0)
 ```
 
 
+
 # Referensi
+
