@@ -47,13 +47,33 @@ data <- read.csv("data.csv")
 # Univat
 Univariat adalah teknik eksplorasi data yang hanya melibatkan satu variabel untuk memahami distribusinya, kecenderungan sentral, dan penyebarannya. Pada histogram di bawah, visualisasi dilakukan dipangil menggunaan library(ggplot2) dengan menampilkan distribusi angka harapan hidup. Warna diatur agar lebih estetis, serta ditambahkan garis kepadatan (density) untuk memperjelas pola distribusi. Dengan menggunakan binwidth = 5, histogram menunjukkan bagaimana nilai angka harapan hidup tersebar dalam dataset, membantu dalam analisis tren dan identifikasi outlier.
 
+
+## Histogram
+
+Variabel yang digunakan angka harapan hidup
+
 ```{r}
-# Histogram angka_harapan_hidup
 library(ggplot2)
 
 ggplot(data, aes(x = Angka_Harapan_Hidup)) +
   geom_histogram(binwidth = 5, fill = "#E5989B", color = "#B5828C") +
-  labs(title = "Distribusi Angka Harapan Hidup", x = "Angka Harapan Hidup", y = "Frekuensi") +
+  labs(title = "Grafik Angka Harapan Hidup", x = "Angka Harapan Hidup", y = "Frekuensi") +
+  theme_minimal()
+
+```
+
+
+## Density Plot
+
+Density plot mirip dengan histogram, tetapi lebih halus karena menggunakan kurva untuk menunjukkan distribusi data. Variable  yang di
+
+```{r}
+library(ggplot2)
+ggplot(data, aes(x = Jumlah_anak)) +
+  geom_density(fill = "#E5989B", alpha = 0.5) +
+  labs(title = "Kepadatan Jumlah Anak",
+       x = "Jumlah Anak",
+       y = "Kepadatan") +
   theme_minimal()
 
 ```
@@ -78,6 +98,7 @@ ggplot(total_population, aes(y = Benua, x = Populasi, fill = Benua)) +
   theme_minimal() +
   scale_fill_brewer(palette = "Pastel1")
 ```
+
 ## scatter plot
 Scatter plot ini menunjukkan hubungan antara pendapatan per kapita dan angka harapan hidup di berbagai negara, dengan warna yang membedakan setiap benua. Penggunaan skala logaritmik pada sumbu X membantu menampilkan distribusi data yang lebih jelas, terutama karena pendapatan per kapita cenderung bervariasi secara ekstrem. Jika titik-titik membentuk pola naik, ini menunjukkan bahwa negara dengan pendapatan per kapita lebih tinggi cenderung memiliki angka harapan hidup yang lebih panjang, mencerminkan hubungan positif antara kesejahteraan ekonomi dan kesehatan.
 ```{r}
@@ -85,7 +106,7 @@ library(ggplot2)
 
 ggplot(data, aes(x = Pendapatan_per_kapita, y = Angka_Harapan_Hidup, color = Benua)) +
   geom_point(alpha = 0.7, size = 3) +
-  labs(title = "Hubungan antara Pendapatan per Kapita dan Angka Harapan Hidup",
+  labs(title = "Grafik Pendapatan per Kapita dan Angka Harapan Hidup",
        x = "Pendapatan per Kapita",
        y = "Angka Harapan Hidup",
        color = "Benua") +
@@ -102,7 +123,7 @@ Analisis multivariat adalah teknik eksplorasi data yang melibatkan lebih dari du
 suppressPackageStartupMessages(library(plotly))
 
 
-# Membuat 3D scatter plot
+# 3D scatter plot
 plot_ly(data, x = ~Pendapatan_per_kapita, y = ~Angka_Harapan_Hidup, z = ~Populasi, 
         type = "scatter3d", mode = "markers", color = ~Benua) %>%
   layout(title = "3D Scatter Plot: Pendapatan Per Kapita vs Angka Harapan Hidup vs Populasi",
@@ -138,10 +159,7 @@ fig <- plot_ly(data,
 
 fig
 
-# Mengembalikan opsi peringatan ke normal
 options(warn = 0)
-
-
 ```
 
 
