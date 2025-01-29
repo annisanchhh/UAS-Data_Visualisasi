@@ -22,7 +22,7 @@ text-align: justify}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Pengantar 
+# Pendahuluan
 
 Analisis data merupakan langkah penting dalam memahami berbagai tren sosial, ekonomi, dan demografi suatu negara. Dataset yang digunakan dalam penelitian ini berisi informasi tentang berbagai negara dari tahun ke tahun, mencakup variabel seperti angka harapan hidup, pendapatan per kapita, populasi, dan rata-rata jumlah anak.
 
@@ -59,18 +59,17 @@ ggplot(data, aes(x = Angka_Harapan_Hidup)) +
 ```
 
 # Bivariat
+Analisis bivariat adalah metode statistik yang digunakan untuk melihat hubungan antara dua variabel.
 
-## scatter plot 
-pendapatan_perkapita dan angka_harapan_hidup
+## histogram 
+Dua variabel adalah Benua (kategori) dan Populasi (numerik). Data dihitung menggunakan aggregate() untuk menjumlahkan total populasi di setiap benua, lalu divisualisasikan menggunakan ggplot2 dalam bentuk grafik batang. Grafik ini membantu memahami bagaimana distribusi populasi berbeda di setiap benua. Analisis bivariat seperti ini sering digunakan untuk mengidentifikasi pola, perbandingan, atau hubungan antara dua variabel sebelum melakukan analisis lebih lanjut seperti korelasi atau regresi.
 
 ```{r}
-# Memuat library
 library(ggplot2)
 
 # Menghitung total populasi per benua
 total_population <- aggregate(Populasi ~ Benua, data = data, sum)
 
-# Visualisasi dengan sumbu dibalik
 ggplot(total_population, aes(y = Benua, x = Populasi, fill = Benua)) +
   geom_bar(stat = "identity") +
   labs(title = "Total Populasi Berdasarkan Benua",
@@ -78,12 +77,26 @@ ggplot(total_population, aes(y = Benua, x = Populasi, fill = Benua)) +
        y = "Benua") +
   theme_minimal() +
   scale_fill_brewer(palette = "Pastel1")
+```
+## scatter plot
+Scatter plot ini menunjukkan hubungan antara pendapatan per kapita dan angka harapan hidup di berbagai negara, dengan warna yang membedakan setiap benua. Penggunaan skala logaritmik pada sumbu X membantu menampilkan distribusi data yang lebih jelas, terutama karena pendapatan per kapita cenderung bervariasi secara ekstrem. Jika titik-titik membentuk pola naik, ini menunjukkan bahwa negara dengan pendapatan per kapita lebih tinggi cenderung memiliki angka harapan hidup yang lebih panjang, mencerminkan hubungan positif antara kesejahteraan ekonomi dan kesehatan.
+```{r}
+library(ggplot2)
 
+ggplot(data, aes(x = Pendapatan_per_kapita, y = Angka_Harapan_Hidup, color = Benua)) +
+  geom_point(alpha = 0.7, size = 3) +
+  labs(title = "Hubungan antara Pendapatan per Kapita dan Angka Harapan Hidup",
+       x = "Pendapatan per Kapita",
+       y = "Angka Harapan Hidup",
+       color = "Benua") +
+  theme_minimal() +
+  scale_x_log10() 
 
 ```
 
-# Multivariat
 
+# Multivariat
+Analisis multivariat adalah teknik eksplorasi data yang melibatkan lebih dari dua variabel untuk memahami hubungan kompleks di antara mereka. Dalam scatter plot 3D ini, hubungan antara pendapatan per kapita, angka harapan hidup, dan populasi divisualisasikan menggunakan plotly, dengan warna yang membedakan setiap benua. Sumbu X merepresentasikan pendapatan per kapita, sumbu Y menunjukkan angka harapan hidup, dan sumbu Z menggambarkan populasi suatu negara. Visualisasi ini memungkinkan analisis interaktif, di mana pengguna dapat memutar dan memperbesar grafik untuk melihat pola hubungan lebih jelas. Dengan pendekatan ini, dapat diamati bagaimana kesejahteraan ekonomi, kesehatan, dan jumlah populasi suatu negara saling berkaitan dalam berbagai wilayah di dunia.
 
 ```{r}
 suppressPackageStartupMessages(library(plotly))
@@ -99,12 +112,9 @@ plot_ly(data, x = ~Pendapatan_per_kapita, y = ~Angka_Harapan_Hidup, z = ~Populas
 ```
 
 
-```{r}
-
-```
 
 # interaktif
- Scatter plot dengan animasi berdasarkan Tahun
+Visualisasi ini bisa berinteraksi langsung dengan pengguna. Pengguna bisa mengarahkan kursor ke setiap titik untuk melihat informasi seperti nama negara, pendapatan per kapita, angka harapan hidup, dan populasi. Grafik ini juga dilengkapi animasi berdasarkan tahun, sehingga data akan bergerak dan menunjukkan perubahan seiring waktu. Selain itu, pengguna dapat memperbesar, mengecilkan, atau menggeser tampilan grafik agar lebih mudah melihat dan memahami pola data.
 
 ```{r}
 library(plotly)
