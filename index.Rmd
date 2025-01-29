@@ -28,8 +28,7 @@ Analisis data merupakan langkah penting dalam memahami berbagai tren sosial, eko
 
 Dengan menggunakan bahasa pemrograman R dan library ggplot2, analisis ini bertujuan untuk mengeksplorasi hubungan antara variabel-variabel tersebut. Melalui visualisasi data, kita dapat memahami bagaimana angka harapan hidup dan pendapatan per kapita berkembang seiring waktu di berbagai wilayah dunia. Selain itu, analisis ini juga dapat membantu dalam mengidentifikasi pola dan perbedaan antar negara dan benua.
 
-Penelitian ini tidak hanya berfokus pada eksplorasi data, tetapi juga pada pemanfaatan teknik statistik untuk mendapatkan wawasan yang lebih mendalam. Dengan demikian, hasil dari analisis ini diharapkan dapat memberikan gambaran yang jelas mengenai tren global dalam berbagai aspek sosial-ekonomi.n ggplot2 sebagai pilihan utama untuk analisis data di R.
-
+Projek ini dibuat bukan hanya untuk dianalisis saja, tetapi juga digunakan untuk memenuhi tugas uas Visualisasi Data.
 
 
 ## Dasar-Dasar  
@@ -65,7 +64,7 @@ ggplot(data, aes(x = Angka_Harapan_Hidup)) +
 
 ## Density Plot
 
-Density plot mirip dengan histogram, tetapi lebih halus karena menggunakan kurva untuk menunjukkan distribusi data. Variable  yang di
+Density plot mirip dengan histogram, tetapi lebih halus karena menggunakan kurva untuk menunjukkan distribusi data. Variable  yang digunakan adalah jumlah anak
 
 ```{r}
 library(ggplot2)
